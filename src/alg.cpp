@@ -1,7 +1,6 @@
 // Copyright 2025 NNTU-CS
 #include <cstdint>
 #include <algorithm>
-using namespace std;
 #include "alg.h"
 
 uint64_t collatzMaxValue(uint64_t num) {
@@ -9,7 +8,7 @@ uint64_t collatzMaxValue(uint64_t num) {
   while (num != 1) {
     if (num % 2) {
       num = 3 * num + 1;
-      res = max(res, num);
+      if (res < num) res = num;
     }
     while (num % 2 == 0) num /= 2;
   }
